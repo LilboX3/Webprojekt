@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+
+body {
+    min-height:100%; 
+    position:relative; 
+    padding-bottom: 50px;
+    background-image: url("../img/background.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: hsla(0, 0%, 100%, 0);
+    padding-top: 35px;
+    padding-bottom: 10px;
+}
+
+.display-1 {
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    color: grey;
+}
+
+.navcenter {
+    text-align: center;
+}
+
+.bg-lib {
+    background-color: #f5f0ee;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.red {
+    color: rgb(187, 0, 0)
+}
+
+.green {
+    color: green;
+}
+
+.row {
+    margin-bottom: 30px;
+}
+
+.imprint {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0px auto;
+    color: black;
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.board {
+    padding: 5px 1px;
+}
+
+.footer { 
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height: 50px;
+}
+
+a{
+    font-style:italic;
+}

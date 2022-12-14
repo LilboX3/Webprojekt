@@ -1,0 +1,25 @@
+/* load styles into html page*/
+
+/*inline style: bad idea
+--> html for content only!
+<h1 style="color: blue;"> ..</h1>
+*/
+
+/* Style html Element in head
+<head>
+    <style>
+        .blue{
+            ...
+        }
+        ... 
+like css file in html
+only available on this page!
+*/
+
+/*External CSS file
+- reusable
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+*/
+

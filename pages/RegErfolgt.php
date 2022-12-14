@@ -1,0 +1,69 @@
+<?php session_start();
+if($_POST["pword"]!=$_POST["2pword"]){
+    header("Location: Registrierung.php?pwordwrong=true");//password nicht gleich error
+}
+if(strlen($_POST["pword"])<8){
+    header("Location: Registrierung.php?pwordshort=true"); //Passwort zu kurz error
+}
+if(!ctype_alnum($_POST["username"])){
+    header("Location: Registrierung.php?usernamewrong=true"); //Username soll nur Buichstaben und danach Zahlen enthalten
+}
+if(!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
+    header("Location: Registrierung.php?mailwrong=true"); //checken ob mail im richtigen format
+}
+if(!isset($_POST["radios"])){
+    header("Location: Registrierung.php?anrederror=true"); //Radio Buttons nicht ausgefüllt
+}
+
+
+//Validation passt-->ansonsten kommt man zur Seite weiter und hat sich registriert!
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleNav.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Sie sind jetzt eingeloggt</title>
+</head>
+<body>
+    <?php
+    include 'Navbar.php';
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> Willkommen in der Des Nâtes Familie! </h1>
+                <h4>Sie sind mit folgenden Daten registriert:</h4>
+                <?php
+                echo "<p> Willkommen ".$_POST["radios"]." ".$_POST["fname"]. " ".$_POST["lname"]. "!</p>";
+                echo "<p> Ihre Mail: ".$_POST["mail"]."</p>";
+                echo "<p> Ihr Username: ".$_POST["username"];
+                echo "<p> Ihr Passwort ist ".strlen($_POST["pword"])." Zeichen lang. </p>";
+
+                if(strlen($_POST["textarea"])>0){ //in der Textbox steht eine Nachricht
+                echo "<p> Ihre Nachricht an uns lautet:</p>";
+                echo $_POST["textarea"];}
+                else {
+                echo "<p> Keine persönliche Nachricht hinzugefügt.";
+                }
+                /* Werte in Datenbank einfügen! */
+                $username = $_POST["username"];
+                $typedpw = $_POST["pword"];
+                $hashed = password_hash($typedpw, PASSWORD_DEFAULT);
+                $mail = $_POST["mail"];
+                    $sql = "INSERT INTO `users` (`username`, `password`, `usermail`)
+                    VALUES ('$username', '$hashed', '$mail');";
+                    $result = $db_obj->query($sql);
+                
+
+
+                ?>
+            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

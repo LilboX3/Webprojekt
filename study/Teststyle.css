@@ -1,0 +1,52 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+body {
+    background-image: url("Safari.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+    text-align: center; /*sorgt dafür dass Text in mitte gruppiert*/
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+  }
+
+  
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    display: inline-block; /*damit text-align center geht*/
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:underline;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: grey;
+    font-style: italic;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    text-transform: capitalize;
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+

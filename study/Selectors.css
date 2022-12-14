@@ -1,0 +1,103 @@
+/* - Styling language for presentation and design of content
+   - Ability to do it multiple ways */
+
+/* Syntax - Selectors
+selector {
+    property1: value; Property: color... value: blue;
+    property2: value;
+} */
+
+/*Element
+rather avoid
+turn all h1 Überschriften blue! */
+h1{
+    color: blue;
+}
+
+/*Class 
+.class-name --> common!
+add in html: <h1 class="big-header"> </h1>
+multiple classes:
+<div class="red square"> --> getrennt mit Leerzeichen */
+.big-header{
+    font-size: x-large;
+    color:aquamarine;
+}
+
+.btn {
+    padding: 10px; /*Abstand innen*/
+    color:white;
+}
+
+.btn-1 {
+    background-color: green; /*buttons unterschiedlicher Farbe*/
+}
+
+/*ID*
+Element can only have 1 id! should be unique on whole page! rare.
+<h1 id="main-header"> ..</h1> */
+#main-header{
+    color:lavender;
+}
+
+/* Combinations 
+.selector-1.selector-2{
+    property: value;
+}
+seperated by:
+if id: #
+if class: .
+if element: ' '
+select all h1 with class large heading
+*/
+h1.large-heading{
+    font-size: 200%;
+}
+
+/*select all with big-blue and large and blue
+<h2 id="big-blue" class="large blue">...</h2> */
+#big-blue.large.blue {
+    color: blue;
+    font-size: 200%;
+}
+
+/* specify ancestor
+space between ancestor and child class
+.ancestor .child {
+    ..
+} 
+child: die Elemente innerhalb eines anderen Elements
+zB alle inputs innerhalb einer form */
+
+/*select all p inside a div:
+<div>
+<p>to Select</p>
+<p>Select me too</p>
+</div>*/
+div p{
+    color: red;
+}
+form input{
+   font-size: x-large;
+}
+
+/*can be combined:
+<header class="main-header">
+    <h1 class="brown">
+        ... */
+header.main-header h1.brown {
+    color: brown;
+} /*Select all headers with class main header, alls h1 with class brown*/
+
+/*same style and values: combine selectors!
+with commas --> avoid duplications
+same code, different names*/
+.big, .large {
+    font-size: 200%;
+}
+
+/* Everything selector: *
+*/
+* {
+    font-family:'Times New Roman', Times, serif;
+}

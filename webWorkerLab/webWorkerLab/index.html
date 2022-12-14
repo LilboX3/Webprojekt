@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MTD280</title>
+    <script src="lib/vue.global.prod.js"></script>
+</head>
+
+<body>
+<h1>MTD280 Example</h1>
+
+<div id="app">
+
+    <p>Draw something:</p>
+    <canvas @mousedown="startDraw" @mouseleave="stopDraw" @mousemove="doDraw" @mouseup="stopDraw"
+            height="300"
+            ref="draw"
+            style="border: solid black 2px"
+            width="400">
+    </canvas>
+    <br>
+    <br>
+
+    <button @click="buttonClick">Start</button>
+    <span ref="prime"></span>
+    <button @click="pauseClick">Pause</button>
+    <button @click="resetClick">Reset Prime Calc</button>
+</div>
+
+<hr>
+<p style="font-size:small">
+    MTD280 Online Multimedia (<a href="http://www.fh-ooe.at/mtd">MTD</a>)<br>
+</p>
+<script src="script.js"></script>
+</body>
+</html>

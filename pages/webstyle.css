@@ -1,0 +1,71 @@
+
+body {
+    background-color: #121f3d;
+    text-align: center;
+
+}
+
+h1, h2, h3, h4, p {
+    color: black;
+}
+
+details{
+    margin-bottom: 2em;
+}
+
+summary{
+    color: black;
+}
+
+a {
+    color: rgb(254, 254, 172);
+}
+
+a:hover {
+    color: #FF00FF;  
+} 
+ /*ändert link farbe wenn man hovered*/
+
+/*img {
+    border-radius: 2%;
+    text-align: center;
+}*/
+
+.help {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 175;
+}
+
+.box {
+    background-color: lightblue;
+    display: inline-block;
+    text-align: center;
+    padding-left: 1em; padding-right: 1em;
+}
+
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);   
+}
+
+.content {
+    width: 75%; 
+    margin: auto; 
+    border: none;
+    text-align: center;
+    
+ }
+
+.tcenter {
+    text-align: center;
+}
+
+
+
