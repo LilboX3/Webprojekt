@@ -14,7 +14,7 @@
             margin-top: 20%;
             /*position: fixed; Verhindert scrollen und verdeckt navbar!*/
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: cover;
         }
 
         .box {

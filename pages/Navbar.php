@@ -1,4 +1,4 @@
-<?php require_once "dbaccess.php"; ?>
+<?php require_once "dbaccess.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
