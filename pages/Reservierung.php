@@ -41,9 +41,7 @@ session_start();
       } else {
           header("Location: Login.php?Loginerror=true&username=".$_POST["usrnm"]); //Falsche Daten eingegeben: error wird ausgebenen bei Login
         }
-       
-      } else {
-        header("Location: Login.php");
+      
       }
       
     }
