@@ -43,7 +43,7 @@ session_start();
         }
        
       } else {
-          
+        header("Location: Login.php");
       }
       
     }
