@@ -54,8 +54,12 @@ if(!isset($_POST["radios"])){
                 $typedpw = $_POST["pword"];
                 $hashed = password_hash($typedpw, PASSWORD_DEFAULT);
                 $mail = $_POST["mail"];
-                    $sql = "INSERT INTO `users` (`username`, `password`, `usermail`)
-                    VALUES ('$username', '$hashed', '$mail');";
+                $name = $_POST["fname"];
+                $lastname = $_POST["lname"];
+                $gender = $_POST["radios"];
+
+                    $sql = "INSERT INTO `users` (`username`, `password`, `usermail`, `name`, `nachname`, `geschlecht`)
+                    VALUES ('$username', '$hashed', '$mail', '$name', '$lastname', '$gender');";
                     $result = $db_obj->query($sql);
                 
 
