@@ -1,4 +1,5 @@
-<?php require_once "dbaccess.php"; ?>
+<?php require_once "dbaccess.php"; 
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +26,20 @@
           <div class="menu-items">
             <li><a href="Homepage.php">Home</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
-            <li><a href="Album.php">Galerie</a></li>
+            <li><a href="Galerie.php">Galerie</a></li>
             <li><a href="Impressum.php">Impressum</a></li>
             <li><a href="Registrierung.php">Registrierung</a></li>
-            <li><a href="Login.php">Anmeldung</a></li>
+        
+            <?php
+            if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){ ?>
             <li><a href="Reservierung.php">Reservierung</a></li>
             <li><a href="Logout.php">Ausloggen</a></li>
+            <?php } else {?>
+              <li><a href="Login.php">Anmelden</a></li>
+            <?php } ?>
+             
+            
+            
             
           </div>
         </div>

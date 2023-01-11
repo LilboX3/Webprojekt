@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 if($_POST["pword"]!=$_POST["2pword"]){
     header("Location: Registrierung.php?pwordwrong=true");//password nicht gleich error
 }

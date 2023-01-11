@@ -23,7 +23,7 @@
     <div class="row">
         <div class= "col" style="margin-top:1%;">
 <?php
-    session_start();
+    
 
         $price = 0;
         $multiply = 0;
