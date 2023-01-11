@@ -60,7 +60,7 @@
                  Anzahl Nächte <input type="number" name="nights" style="width: 2em" min="1" max="365"><br>
                  Datum Anreise <input type="date" name="Anreise"><br>
                  Datum Abreise <input type="date" name="Abreise"><br>
-                <input type="submit" name="Buchen" value="Reservieren">
+                  <input type="submit" name="Buchen" value="Reservieren">
               </form>
             </div>
           </div>
