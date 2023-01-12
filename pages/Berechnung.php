@@ -58,6 +58,8 @@
               <form action="Berechnung.php" method="get">
                 <label for="Zimmer">Wählen Sie aus:</label> <br/>
                  mit Frühstück <input type="radio" name="breakfast" value="Ja"> Ja <input type="radio" name="breakfast" value="Nein"> Nein  (+20€/Tag)<br>
+                 Mitnahme von Haustier <input type="radio" name="pet" value="Ja"> Ja <input type="radio" name="pet" value="Nein"> Nein <br>
+                 mit Parkplatz <input type="radio" name="parking" value="Ja"> Ja <input type="radio" name="parking" value="Nein"> Nein  (+1€/Tag)<br>
                  Anzahl Nächte <input type="number" name="nights" style="width: 2em" min="1" max="365"><br>
                  Datum Anreise <input type="date" name="Anreise"><br>
                  Datum Abreise <input type="date" name="Abreise"><br>
@@ -66,11 +68,14 @@
             </div>
           </div>
           <?php 
-          if(isset($_GET["breakfast"], $_GET["nights"], $_GET["Anreise"], $_GET["Abreise"], $_SESSION["Preis"])){ //Daten ausgeben, wenn sie alle gesetzt sind!
+          if(isset($_GET["breakfast"], $_GET["parking"], $_GET["pet"], $_GET["nights"], $_GET["Anreise"], $_GET["Abreise"], $_SESSION["Preis"])){ //Daten ausgeben, wenn sie alle gesetzt sind!
         
             $wholeprice = $_GET["nights"]*$_SESSION["Preis"];
             if($_GET["breakfast"]=="Ja"){
                 $wholeprice += $_GET["nights"]*20;
+            }
+            if($_GET["parking"]=="Ja"){
+              $wholeprice += $_GET["nights"];
             }
             
             $datetime1 = date_create($_GET["Anreise"]);
@@ -78,11 +83,15 @@
 
             $dateDiff = date_diff($datetime1, $datetime2); //differenz der beiden Datume
 
-                if($dateDiff->d!=$_GET["nights"]){ //von Object dayDiff mit ->d auf die int days zugreifen 
+                if($datetime1>=$datetime2){
+                    echo "<p class='error'> Anreisedatum ist nach oder gleich dem Abreisedatum. </p>";
+                } else if($dateDiff->d!=$_GET["nights"]){ //von Object dayDiff mit ->d auf die int days zugreifen 
                     echo "<p class='error'> Das Datum stimmt nicht mit ".$_GET["nights"]." Nächten überein. </p>";
                 } else {
                     echo "<p> Ihre Reise wurde gebucht! Überprüfen Sie nochmal Ihre Daten: </p>";
                     echo "<p> Mit Frühstück: ".$_GET["breakfast"]."</p>";
+                    echo "<p> Mitnahme Haustier: ".$_GET["pet"]."</p>";
+                    echo "<p> Mit Parkplatz: ".$_GET["parking"]."</p>";
                     echo "<p> Anzahl Nächte: ".$_GET["nights"]."</p>";
                     echo "<p> Anreise am: ".$_GET["Anreise"]." bis zum: ".$_GET["Abreise"]."</p>";
                     echo "<p> Zu einem insgesamten Preis von ".$wholeprice."€.</p>";

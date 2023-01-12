@@ -26,7 +26,7 @@
         <h1 style="text-align:center;">Ändern Sie Ihre Daten hier:</h1>
             <div class="col"></div>
             <div class="col box" style="border-radius:5px;">
-                
+
             
                 <form action="Daten.php" method="post"> <!--Name Eingabefeld-->
                 <p style="font-size:smaller;color:green;">Sie müssen nicht alle Felder ausfüllen.</p>

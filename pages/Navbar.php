@@ -6,7 +6,6 @@ session_start();?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Document</title>
 </head>
 <body>
@@ -19,12 +18,12 @@ session_start();?>
               <span class="line line2"></span>
               <span class="line line3"></span>
             </div>  
-          <div class="col" style="text-align:center;">
+          <div class="col" style="text-align:center">
             <?php if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){
               echo "<p>Eingeloggt als ".$_SESSION["username"]."</p>";
             } else {
-              echo "Sie sind anonym";
-            }?>
+              echo "<p>Sie sind anonym</p>";
+            } ?>
           </div>
           <div class="logo">
             <h1 onclick="window.location.href='Homepage.php';"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-spade-fill" viewBox="0 0 16 16">
@@ -32,20 +31,22 @@ session_start();?>
             </svg> Hotel Des Nâtes</h1>
           </div>
           <div class="menu-items">
+            <?php if(isset($_SESSION["admin"])&&$_SESSION["admin"]){?>
+            <li><a href="AdCtrlPanel.php">Control Panel</a></li>
+            <?php } ?>
+
             <li><a href="Homepage.php">Home</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
             <li><a href="Galerie.php">Galerie</a></li>
+            <li><a href="News.php">News</a></li>
             <li><a href="Impressum.php">Impressum</a></li>
             <li><a href="Registrierung.php">Registrierung</a></li>
-            <?php if(isset($_SESSION["admin"])&&$_SESSION["admin"]){?>
-              <li><a href="idk.php">Control Panel</a></li>
-            <?php } ?>
-        
+
             <?php
             if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){ ?>
             <li><a href="Reservierung.php">Reservierung</a></li>
-            <li><a href="Stammdaten.php">Stammdaten ändern</a></li>
             <li><a href="Logout.php">Ausloggen</a></li>
+            <li><a href="Stammdaten.php">Stammdaten ändern</a></li>
             <?php } else {?>
               <li><a href="Login.php">Anmelden</a></li>
             <?php } ?>
@@ -71,6 +72,9 @@ session_start();?>
     
   }
   //wenn fetch assoc nix zurückgibt: user existiert nicht in datenbank--> LOGIN (fetch array braucht man nd)
+  
+
+  
   */
     ?>
 

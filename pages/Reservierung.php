@@ -45,6 +45,7 @@
         if($admincell=="yes"){
           $_SESSION["admin"]=true;
         }
+        
 
         } 
       } else if($_POST["pw"]==NULL){
@@ -53,6 +54,8 @@
           header("Location: Login.php?Loginerror=true&username=".$_POST["usrnm"]); //Falsche Daten eingegeben: error wird ausgebenen bei Login
         }
       
+      } else {
+        header("Location: Login.php?nopw=".$_POST["usrnm"]); 
       }
       
     }
@@ -60,7 +63,7 @@
 
     ?>
     <?php 
-    if (!isset($_SESSION['reload_index']) || ($_SESSION['reload_index'] == 'yes')){
+    if (!isset($_SESSION['reload_index'])&&$_SESSION["loggedIn"]){
         $_SESSION['reload_index'] = 'no';
         header("Location: Reservierung.php"); 
       } 

@@ -6,12 +6,12 @@ $database = "bif1webtechdb";
 
 $db_obj = new mysqli($host, $user, $password, $database); //-> auf eigenschaften des objekts zugreifen
 
-if ($db_obj->connect_error) { //wenn conn error vom objekt true ist
-    echo "<p style='text-align:center;color:red;'>Connection Error: " . $db_obj->connect_error."</p>";
-    exit();
-    } else {
-        echo "<p style='text-align:center;color:green;'>Connection successful</p>";
-    }
+    if ($db_obj->connect_error) { //wenn conn error vom objekt true ist
+        echo "<p style='text-align:center;color:red;'>Connection Error: " . $db_obj->connect_error."</p>";
+        exit();
+        } else {
+            echo "<h3 style='text-align:center;color:green;'>&#x2022;</h3>";
+        }
 
 ?>
 <!DOCTYPE html>

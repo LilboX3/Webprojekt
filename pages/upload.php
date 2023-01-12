@@ -7,26 +7,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="StyleNav.css">
     <title>Ihre Anfrage</title>
+    <link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-activities/96/52769-spade-suit-icon.png">
     <style>
     .box{
-        background-color: lightblue;
+        background-color: #555;
         border-radius: 4px;
     }
     </style>
-<link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-activities/96/52769-spade-suit-icon.png">
 </head>
 <body>
     <?php include 'Navbar.php'?>
     <div class="container">
         <div class="row" style="margin-top: 1%;">
     <div class="col">
-    Danke! Wir haben folgende Anfrage von Ihnen erhalten und beantworten Ihre Fragen innerhalb 3 Werktage.
+    News-Beitrag wird gepostet...
     </div>
     <div class="col box">
     <?php 
     $target_dir = "uploads/";
 
-    echo "<p style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["textmsg"] . "</p>"; //Text ausgeben
+    echo "<h4 style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["ntitel"] . "</h4>"; //Text ausgeben
 
     
     if(isset($_FILES["picture"])){
@@ -36,12 +36,13 @@
         if(strpos($type, "image")!==false){ //kann ein false oder int rauskommen bei strpos, wenn int dann ist es true. wenn es nicht vom typ false ist: TYP STIMMT!
             // !== bedeutet ist nicht vom typ
             move_uploaded_file($picture["tmp_name"], "uploads/".$picture["name"]);
-            echo "<img src=\"uploads/" . $picture["name"]. "\" height='400' width='500'> </img>";
+            echo "<img src=\"uploads/" . $picture["name"]. "\" height='400' width=''> </img>";
         } else {
             echo "Fehler - ".$type." ist kein Bild und wurde nicht hochgeladen.";
         }
     }
     
+    echo "<p style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["textmsg"] . "</p>";
     
     ?>  
             </div>
