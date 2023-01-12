@@ -32,18 +32,23 @@
         $password = $_POST["pw"];
         $hashed = $db_obj->query("SELECT `password` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($hashed);
-        $cell=(string)$result["password"]; //note accessing the [$column] value of the $result array
+        $cell=(string)$result["password"];
 
         $admin = $db_obj->query("SELECT `admin` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($admin);
-
+        $admincell = (string)$result["admin"]; //string aus datensatz mit admin holen
         
+
         if(password_verify($password, $cell)){
           $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user ."'");
         if(($row = $result->fetch_assoc())!== null){
           $_SESSION["username"]=$user;
         $_SESSION["password"]=$password;
-        $_SESSION["loggedIn"] = true; //Man kann auf Reservierung zugreifen, ohne sich nochmal einzuloggen
+        $_SESSION["loggedIn"] = true; //Man kann auf Reservierung zugreifen, ohne sich nochmal einzuloggen#
+        if($admincell=="yes"){
+          $_SESSION["admin"]=true;
+        }
+
         } 
       } else if($_POST["pw"]==NULL){
         header("Location: Login.php?nopw=true");
@@ -54,6 +59,7 @@
       }
       
     }
+ 
 
     ?>
     <?php 

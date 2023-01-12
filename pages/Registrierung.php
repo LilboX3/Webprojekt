@@ -58,6 +58,9 @@ speziellen HTML5 Tags voreinschränken).-->
         <?php if(isset($_GET["usernamewrong"]) && $_GET["usernamewrong"]){
           echo "<p class='error'>Nutzername darf nur Buchstaben und Zahlen enthalten!</p>";
         }
+        if(isset($_GET["usernameexists"]) && $_GET["usernameexists"]){
+          echo "<p class='error'>Nutzername existiert bereits!</p>";
+        }
         ?>
         <label for="pword">Ihr Passwort:</label> <br/>
         <input style="width: 300px;" type="password" id="pword" name="pword" placeholder="mind. 8 Zeichen" required/>

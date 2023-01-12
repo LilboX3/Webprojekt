@@ -16,6 +16,7 @@ if(!isset($_POST["radios"])){
 }
 
 
+
 //Validation passt-->ansonsten kommt man zur Seite weiter und hat sich registriert!
 ?>
 <!DOCTYPE html>
@@ -39,6 +40,12 @@ if(!isset($_POST["radios"])){
                 <h1> Willkommen in der Des Nâtes Familie! </h1>
                 <h4>Sie sind mit folgenden Daten registriert:</h4>
                 <?php
+                $user = $_POST["username"];
+                $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user."'");
+                if($result->num_rows != 0) { //username existiert bereits!
+                    header("Location: Registrierung.php?usernameexists=true");
+                }
+                
                 echo "<p> Willkommen ".$_POST["radios"]." ".$_POST["fname"]. " ".$_POST["lname"]. "!</p>";
                 echo "<p> Ihre Mail: ".$_POST["mail"]."</p>";
                 echo "<p> Ihr Username: ".$_POST["username"];

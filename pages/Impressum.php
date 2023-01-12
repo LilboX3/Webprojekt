@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-3">
         <h4> Fineas "Finn" Kanada </h4>
-        <img src="pics/fim.jpeg" height="200" width="150"></img>
+        <img src="pics/fim.jpeg" height="200" width="160"></img>
         <p> Leitung </p>
         <p> Design</p>
       </div>

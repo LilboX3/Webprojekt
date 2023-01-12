@@ -37,10 +37,14 @@ session_start();?>
             <li><a href="Galerie.php">Galerie</a></li>
             <li><a href="Impressum.php">Impressum</a></li>
             <li><a href="Registrierung.php">Registrierung</a></li>
+            <?php if(isset($_SESSION["admin"])&&$_SESSION["admin"]){?>
+              <li><a href="idk.php">Control Panel</a></li>
+            <?php } ?>
         
             <?php
             if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){ ?>
             <li><a href="Reservierung.php">Reservierung</a></li>
+            <li><a href="Stammdaten.php">Stammdaten ändern</a></li>
             <li><a href="Logout.php">Ausloggen</a></li>
             <?php } else {?>
               <li><a href="Login.php">Anmelden</a></li>
