@@ -29,7 +29,6 @@
     if(!$_SESSION["loggedIn"]){
       if(isset($_POST["usrnm"]) && isset($_POST["pw"])){
         $user = $_POST["usrnm"];
-        $password = $_POST["pw"];
         $hashed = $db_obj->query("SELECT `password` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($hashed);
         $cell=(string)$result["password"];
@@ -37,14 +36,12 @@
         $admin = $db_obj->query("SELECT `admin` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($admin);
         $admincell = (string)$result["admin"]; //string aus datensatz mit admin holen
-        
-
-        if(password_verify($password, $cell)){
+  
+        if(password_verify($_POST["pw"], $cell)){
           $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user ."'");
         if(($row = $result->fetch_assoc())!== null){
           $_SESSION["username"]=$user;
-        $_SESSION["password"]=$password;
-        $_SESSION["loggedIn"] = true; //Man kann auf Reservierung zugreifen, ohne sich nochmal einzuloggen#
+          $_SESSION["loggedIn"] = true; //Man kann auf Reservierung zugreifen, ohne sich nochmal einzuloggen#
         if($admincell=="yes"){
           $_SESSION["admin"]=true;
         }
@@ -72,7 +69,7 @@
        <div class="container">
           <div class="row"> 
             <div class= "col" style="margin-top:1%;">   
-            Willkommen zurück! Sie sind eingeloggt als <?php echo  $_SESSION["username"]; 
+            Willkommen zurück! Sie sind eingeloggt als <?php echo $_SESSION["username"]; 
             ?> .
             </div>
             <div class="col" style="margin-top:1%;">

@@ -26,6 +26,7 @@
         <h2>Anmelden</h2>
     </div>
     <div class="box">
+        
     <form action="Reservierung.php" method="post">
         <label for="usrnm">Username:</label><br>
         <input style="width: 300px; height: 30px;" type="text" id="usrnm" name="usrnm" placeholder="Ihr Username"><br>

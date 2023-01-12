@@ -38,14 +38,14 @@ if(!isset($_POST["radios"])){
         <div class="row">
             <div class="col">
                 <h1> Willkommen in der Des Nâtes Familie! </h1>
-                <h4>Sie sind mit folgenden Daten registriert:</h4>
+                <h4>Melden Sie sich jetzt an! Sie sind mit folgenden Daten registriert:</h4>
                 <?php
                 $user = $_POST["username"];
                 $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user."'");
                 if($result->num_rows != 0) { //username existiert bereits!
                     header("Location: Registrierung.php?usernameexists=true");
-                }
-                
+                } else {
+
                 echo "<p> Willkommen ".$_POST["radios"]." ".$_POST["fname"]. " ".$_POST["lname"]. "!</p>";
                 echo "<p> Ihre Mail: ".$_POST["mail"]."</p>";
                 echo "<p> Ihr Username: ".$_POST["username"];
@@ -59,8 +59,7 @@ if(!isset($_POST["radios"])){
                 }
                 /* Werte in Datenbank einfügen! */
                 $username = $_POST["username"];
-                $typedpw = $_POST["pword"];
-                $hashed = password_hash($typedpw, PASSWORD_DEFAULT);
+                $hashed = password_hash($_POST["pword"], PASSWORD_DEFAULT);
                 $mail = $_POST["mail"];
                 $name = $_POST["fname"];
                 $lastname = $_POST["lname"];
@@ -69,6 +68,7 @@ if(!isset($_POST["radios"])){
                     $sql = "INSERT INTO `users` (`username`, `password`, `usermail`, `name`, `nachname`, `geschlecht`)
                     VALUES ('$username', '$hashed', '$mail', '$name', '$lastname', '$gender');";
                     $result = $db_obj->query($sql);
+            }
                 
 
 

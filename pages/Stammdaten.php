@@ -34,11 +34,6 @@
                 <input type="radio" name="radios" value="Herr"> Herr <br>
     	        <input type="radio" name="radios" value="Frau"> Frau
                 <br>
-                <?php
-                if(isset($_GET["anrederror"])&& $_GET["anrederror"]){
-                    echo "<p class='error'>Bitte wählen sie eine Anrede aus.</p>";
-                }    
-                ?>
                 <label for="fname">Neuer Vorname:</label> <br/>
                 <input style="width: 300px;" type="text" id="fname" name="fname" placeholder="Max" pattern="[a-zA-Z]+"/>
                 <br>
@@ -73,7 +68,11 @@
                 if(isset($_GET["pwordshort"]) && $_GET["pwordshort"]){
                 echo "<p class='error'> Das Passwort ist zu kurz! Mind. 8 Zeichen. </p>";
                 }
+                if(isset($_GET["datenerror"]) && $_GET["datenerror"]){
+                echo "<p class='error'> Sie haben die falschen Anmeldedaten eingegeben! </p>";
+                }
                 ?>
+            
                 <input type="submit" style="margin-bottom:5%; margin-top:2%;"/>
                 
             </div>
