@@ -27,6 +27,7 @@
             margin-bottom: 2%;
         }
     </style>
+<link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-activities/96/52769-spade-suit-icon.png">
 </head>
 
 <body>

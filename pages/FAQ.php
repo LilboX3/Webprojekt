@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="StyleNav.css">
     <link rel="stylesheet" href="helper.css">
+<link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-activities/96/52769-spade-suit-icon.png">
 </head>
 <body>
     <?php include 'Navbar.php'?> <!-- Navbar auf allen Seiten: eigene File, einfach überall inkludieren-->
