@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="StyleNav.css">
     <title>Log-In Erfolgt</title>
+<link rel="icon" type="image/png" href="https://icons.iconarchive.com/icons/google/noto-emoji-activities/96/52769-spade-suit-icon.png">
 </head>
 <body>
   <style>
@@ -23,6 +24,7 @@
     
     if(!isset($_SESSION["loggedIn"])){ //Login Daten in Session speichern, dann bleibt man eingeloggt
       $_SESSION["loggedIn"] = false;
+      $_SESSION["admin"] = false; //in session als admin angemeldet?
     }
     if(!$_SESSION["loggedIn"]){
       if(isset($_POST["usrnm"]) && isset($_POST["pw"])){
@@ -32,6 +34,10 @@
         $result = mysqli_fetch_assoc($hashed);
         $cell=(string)$result["password"]; //note accessing the [$column] value of the $result array
 
+        $admin = $db_obj->query("SELECT `admin` FROM users WHERE username = '".$user ."'");
+        $result = mysqli_fetch_assoc($admin);
+
+        
         if(password_verify($password, $cell)){
           $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user ."'");
         if(($row = $result->fetch_assoc())!== null){
@@ -64,7 +70,7 @@
             ?> .
             </div>
             <div class="col" style="margin-top:1%;">
-              <input type="submit" value="Meine Daten ändern" onclick="window.open('Registrierung.php');">
+              <input type="submit" value="Meine Daten ändern" onclick="window.open('Stammdaten.php');">
             </div>
           </div>
           <div class="row">
