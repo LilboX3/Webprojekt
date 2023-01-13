@@ -1,5 +1,14 @@
 <?php require_once "dbaccess.php"; 
 session_start();?>
+<?php 
+ function get_cell($column, $username, $db_obj) //funktion in jeder file einsetzbar!
+  {
+    $value = $db_obj->query("SELECT `".$column."` FROM users WHERE username = '".$username ."'");
+     $result = mysqli_fetch_assoc($value);
+     $cell=(string)$result["".$column.""]; //einzelne zelle als string holen aus zeile
+    return $cell;
+      }
+                ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

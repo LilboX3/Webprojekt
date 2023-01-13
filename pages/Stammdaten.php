@@ -27,29 +27,40 @@
             <div class="col"></div>
             <div class="col box" style="border-radius:5px;">
 
-            
+                
                 <form action="Daten.php" method="post"> <!--Name Eingabefeld-->
                 <p style="font-size:smaller;color:green;">Sie müssen nicht alle Felder ausfüllen.</p>
+
+                <?php $cell = get_cell("Geschlecht", $_SESSION["username"], $db_obj);?>
                 <label for="Anrede">Anrede ändern:</label> <br/>
                 <input type="radio" name="radios" value="Herr"> Herr <br>
-    	        <input type="radio" name="radios" value="Frau"> Frau
+    	        <input type="radio" name="radios" value="Frau"> Frau <br>
+                <label for="Anrede" style="font-size:smaller;">Ihre Anrede: <?php echo $cell?></label>
                 <br>
+
+                <?php $cell = get_cell("Name", $_SESSION["username"], $db_obj);?>
                 <label for="fname">Neuer Vorname:</label> <br/>
-                <input style="width: 300px;" type="text" id="fname" name="fname" placeholder="Max" pattern="[a-zA-Z]+"/>
+                <input style="width: 300px;" type="text" id="fname" name="fname" placeholder="<?php echo $cell?>" pattern="[a-zA-Z]+"/>
                 <br>
+
+                <?php $cell = get_cell("Nachname", $_SESSION["username"], $db_obj); ?>
                 <label for="lname">Neuer Nachname:</label> <br/>
-                <input style="width: 300px;" type="text" id="lname" name="lname" placeholder="Mustermann" pattern="[a-zA-Z]+" />
+                <input style="width: 300px;" type="text" id="lname" name="lname" placeholder="<?php echo $cell ?>" pattern="[a-zA-Z]+" />
                 <br>
+
+                <?php $cell = get_cell("Usermail", $_SESSION["username"], $db_obj); ?>
                 <label for="mail">Neue E-Mail Adresse:</label> <br/>
-                <input style="width: 300px;" type="email" id="mail" name="mail" placeholder="maxmustermann@gmail.com" />
+                <input style="width: 300px;" type="email" id="mail" name="mail" placeholder="<?php echo $cell?>" />
                 <br>
                 <?php
                 if(isset($_GET["mailwrong"]) && $_GET["mailwrong"]){
                  echo "<p class='error'>Die Mail ist nicht im Format name@mail.com</p>";
                      }
                 ?>
+
+                <?php $cell = get_cell("Username", $_SESSION["username"], $db_obj); ?>
                 <label for="username">Alter Username(benötigt):</label> <br/>
-                <input style="width: 300px;" type="text" id="olusername" name="olusername" placeholder="max101" />
+                <input style="width: 300px;" type="text" id="olusername" name="olusername" placeholder="<?php echo $cell ?>" required/>
                 <br>
                 <label for="username">Neuer Username:</label> <br/>
                 <input style="width: 300px;" type="text" id="username" name="username" placeholder="max101" />
@@ -58,8 +69,9 @@
                 echo "<p class='error'>Nutzername darf nur Buchstaben und Zahlen enthalten!</p>";
                 }
                 ?>
+
                 <label for="pword">Ihr Passwort (benötigt):</label> <br/>
-                <input style="width: 300px;" type="password" id="pword" name="pword" placeholder="mind. 8 Zeichen" required/>
+                <input style="width: 300px;" type="password" id="pword" name="pword" placeholder="********" required/>
                 <br>
                 <label for="2pword">Neues Passwort:</label> <br/>
                 <input style="width: 300px;" type="password" id="2pword" name="2pword" placeholder="mind. 8 Zeichen" />
@@ -73,7 +85,7 @@
                 }
                 ?>
             
-                <input type="submit" style="margin-bottom:5%; margin-top:2%;"/>
+                <input type="submit" value="Ändern" style="margin-bottom:5%; margin-top:2%;"/>
                 
             </div>
             <div class="col"></div>

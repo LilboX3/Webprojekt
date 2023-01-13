@@ -55,7 +55,7 @@
     <ul>
         <li><a href="AdNewsUpload.php"><h4>News Beitrag Posten</h4></a></li>
         <li><a href="AdUser.php"><h4>Userverwaltung</h4></a></li>
-        <li><a href="#"><h4>Reservierungsverwaltung</h4></a></li>
+        <li><a href="AdReservierung.php"><h4>Reservierungsverwaltung</h4></a></li>
         <li><a href="AdNeueReg.php"><h4>Neue Registrierungen</h4></a></li>
     </ul>
     </div>

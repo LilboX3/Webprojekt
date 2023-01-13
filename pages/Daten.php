@@ -84,7 +84,7 @@ if(check_user($_POST["olusername"], $_POST["pword"], $db_obj)){
 <div class="container">
     <div class="row">
         <div class="col">
-            Sie haben ihre Daten geändert und werden jetzt ausgeloggt.
+            <p style="color:green;">Sie haben ihre Daten erfolgreich geändert.</p>
             
         </div>
     </div>
