@@ -12,7 +12,63 @@
     <link rel="stylesheet" href="StyleNav.css">
     <link rel="stylesheet" href="helper.css">
 </head>
+<style>
+   .box{
+      border-radius: 4%;
+      display: block;
+      background-color: lightblue;
+      padding: 1%;
+      text-align: center;
+    }
+    .box2{
+        border-radius: 4%;
+      display: block;
+      background-color: darkcyan;
+      padding: 1%;
+      text-align: center;
+      margin-bottom:2%;
+      margin-top:2%;
+    }
+  </style>
 <body>
     <?php include 'Navbar.php'?>
+    <div class="container">
+        <div class="row">
+            <h2>Ihre Reservierungen: </h2>
+            <div class="col box">
+                <div class="row">
+                <?php 
+                function bool_toString($bool){
+                    if($bool==1){
+                        return "Ja";
+                    }
+                    return "Nein";
+                }
+                $count = 1;
+                 $result = $db_obj->query("SELECT * FROM Reservierungen WHERE user = '".$_SESSION["username"] ."'");
+                 while(($row = $result->fetch_assoc())!== null){
+
+                    $breakfast = bool_toString($row["Frühstück"]); //1 und 0 zu Ja und Nein String
+                    $parking = bool_toString($row["Parkplatz"]);
+                    $pet = bool_toString($row["Haustier"]);
+                    
+                    echo "<div class='col-4'></div>"; //Boxen in die Mitte bringen
+
+                   echo "<div class='col-4 box2'>";
+                   echo "<p>".$count .". Ihre Buchungsnummer lautet ".$row["ZimmerID"]."</p>";
+                   echo "<p>Ihr Aufenthalt ist von ".$row["Anreise"]." bis ".$row["Abreise"]." für ".$row["Nächte"]." Nächte.</p>"; 
+                   echo "<p>Mit Frühstück: ".$breakfast.", Mit einem Parkplatz; ".$parking.", Mit einem Haustier: ".$pet."</p>"; 
+                   echo "<p>Sie zahlen bei Ankunft insgesamt ".$row["Preis"]." €.</p>";
+                    echo "</div>";
+
+                    echo "<div class='col-4'></div>";
+
+                    $count++;
+                 }
+                ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

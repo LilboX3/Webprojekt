@@ -99,8 +99,8 @@
                   $breakfast = get_bool($_GET["breakfast"]);
                   $parking = get_bool($_GET["parking"]);
                   $pet = get_bool($_GET["pet"]);
-                  $sql = "INSERT INTO `Reservierungen` (`Preis`, `Nächte`,`Anreise`, `Abreise`, `Frühstück`, `Parkplatz`, `Haustier`, `user`)
-                  VALUES ('$wholeprice', '".$_GET["nights"]."', '".$_GET["Anreise"]."', '".$_GET["Abreise"]."', '$breakfast', '$parking', '$pet', '".$_SESSION["username"]."');";
+                  $sql = "INSERT INTO `Reservierungen` (`Preis`, `Nächte`,`Anreise`, `Abreise`, `Frühstück`, `Parkplatz`, `Haustier`, `user`, `Status` )
+                  VALUES ('$wholeprice', '".$_GET["nights"]."', '".$_GET["Anreise"]."', '".$_GET["Abreise"]."', '$breakfast', '$parking', '$pet', '".$_SESSION["username"]."', 'Neu');";
                   $result = $db_obj->query($sql);
 
                     echo "<p> Ihre Reise wurde gebucht! Überprüfen Sie nochmal Ihre Daten: </p>";
