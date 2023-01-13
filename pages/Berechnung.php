@@ -68,7 +68,15 @@
             </div>
           </div>
           <?php 
-          if(isset($_GET["breakfast"], $_GET["parking"], $_GET["pet"], $_GET["nights"], $_GET["Anreise"], $_GET["Abreise"], $_SESSION["Preis"])){ //Daten ausgeben, wenn sie alle gesetzt sind!
+          function get_bool($value) //boolean für parkplatz, frühstück, haustier holen
+          {
+            if($value=="Ja"){
+              return true;
+            }
+            return false;
+          }
+
+          if(isset($_GET["breakfast"], $_GET["parking"], $_GET["pet"], $_GET["nights"], $_GET["Anreise"], $_GET["Abreise"], $_SESSION["Preis"])&&!empty($_GET["nights"])){ //Daten ausgeben, wenn sie alle gesetzt sind!
         
             $wholeprice = $_GET["nights"]*$_SESSION["Preis"];
             if($_GET["breakfast"]=="Ja"){
@@ -88,6 +96,13 @@
                 } else if($dateDiff->d!=$_GET["nights"]){ //von Object dayDiff mit ->d auf die int days zugreifen 
                     echo "<p class='error'> Das Datum stimmt nicht mit ".$_GET["nights"]." Nächten überein. </p>";
                 } else {
+                  $breakfast = get_bool($_GET["breakfast"]);
+                  $parking = get_bool($_GET["parking"]);
+                  $pet = get_bool($_GET["pet"]);
+                  $sql = "INSERT INTO `Reservierungen` (`Preis`, `Nächte`,`Anreise`, `Abreise`, `Frühstück`, `Parkplatz`, `Haustier`, `user`)
+                  VALUES ('$wholeprice', '".$_GET["nights"]."', '".$_GET["Anreise"]."', '".$_GET["Abreise"]."', '$breakfast', '$parking', '$pet', '".$_SESSION["username"]."');";
+                  $result = $db_obj->query($sql);
+
                     echo "<p> Ihre Reise wurde gebucht! Überprüfen Sie nochmal Ihre Daten: </p>";
                     echo "<p> Mit Frühstück: ".$_GET["breakfast"]."</p>";
                     echo "<p> Mitnahme Haustier: ".$_GET["pet"]."</p>";

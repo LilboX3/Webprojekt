@@ -82,6 +82,9 @@
           <div class="row">
             <div class="col box" style="margin-top: 1%;">
               <form action="Berechnung.php" action="get">
+                <?php 
+                if(isset($_SESSION["Preis"])){
+                $_SESSION["Preis"]=NULL;} ?>
                 <label for="Zimmer">Reservieren sie ein Zimmer:</label> <br/>
                  Doppelzimmer Standard <input type="number" name="anzahlStd" style="width: 2em" min="1" max="50"> 140 € p. P.<br>
                  Deluxe Doppelzimmer <input type="number" name="anzahlDel" style="width: 2em" min="1" max="10"> 200 € p. P.<br>

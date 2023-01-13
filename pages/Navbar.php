@@ -53,7 +53,8 @@ session_start();?>
 
             <?php
             if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){ ?>
-            <li><a href="Reservierung.php">Reservierung</a></li>
+            <li><a href="Reserviert.php">Meine Reservierungen</a></li>
+            <li><a href="Reservierung.php">Neue Reservierung</a></li>
             <li><a href="Logout.php">Ausloggen</a></li>
             <li><a href="Stammdaten.php">Stammdaten ändern</a></li>
             <?php } else {?>
