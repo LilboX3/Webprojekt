@@ -8,6 +8,13 @@ session_start();?>
      $cell=(string)$result["".$column.""]; //einzelne zelle als string holen aus zeile
     return $cell;
       }
+
+  function bool_toString($bool){
+        if($bool==1){
+            return "Ja";
+        }
+        return "Nein";
+    }
                 ?>
 <!DOCTYPE html>
 <html lang="en">

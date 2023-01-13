@@ -38,12 +38,7 @@
             <div class="col box">
                 <div class="row">
                 <?php 
-                function bool_toString($bool){
-                    if($bool==1){
-                        return "Ja";
-                    }
-                    return "Nein";
-                }
+                
                 $count = 1;
                  $result = $db_obj->query("SELECT * FROM Reservierungen WHERE user = '".$_SESSION["username"] ."'");
                  while(($row = $result->fetch_assoc())!== null){
@@ -59,6 +54,7 @@
                    echo "<p>Ihr Aufenthalt ist von ".$row["Anreise"]." bis ".$row["Abreise"]." für ".$row["Nächte"]." Nächte.</p>"; 
                    echo "<p>Mit Frühstück: ".$breakfast.", Mit einem Parkplatz; ".$parking.", Mit einem Haustier: ".$pet."</p>"; 
                    echo "<p>Sie zahlen bei Ankunft insgesamt ".$row["Preis"]." €.</p>";
+                   echo "<p>Der Status Ihrer Buchung ist: ".$row["Status"]."</p>";
                     echo "</div>";
 
                     echo "<div class='col-4'></div>";
