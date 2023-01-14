@@ -20,8 +20,14 @@
     }
   </style>
   <?php include 'Navbar.php'?>
+  <div class="container">
+          <div class="row"> 
 <?php
-    
+    function check_status($user, $db_obj){
+      $status = get_cell("Status", $user, $db_obj);
+      return $status;
+    }
+
     if(!isset($_SESSION["loggedIn"])){ //Login Daten in Session speichern, dann bleibt man eingeloggt
       $_SESSION["loggedIn"] = false;
       $_SESSION["admin"] = false; //in session als admin angemeldet?
@@ -32,12 +38,16 @@
         $hashed = $db_obj->query("SELECT `password` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($hashed);
         $cell=(string)$result["password"];
+        $_SESSION["status"] = check_status($user, $db_obj); //aktiv, inaktiv, deaktiviert?
 
         $admin = $db_obj->query("SELECT `admin` FROM users WHERE username = '".$user ."'");
         $result = mysqli_fetch_assoc($admin);
         $admincell = (string)$result["admin"]; //string aus datensatz mit admin holen
   
-        if(password_verify($_POST["pw"], $cell)){
+        if($_SESSION["status"]!="aktiv"){
+          
+        }
+        else if(password_verify($_POST["pw"], $cell)){
           $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user ."'");
         if(($row = $result->fetch_assoc())!== null){
           $_SESSION["username"]=$user;
@@ -68,12 +78,10 @@
         header("Location: Reservierung.php"); 
       } 
     ?>
-    
-       <div class="container">
-          <div class="row"> 
             <div class= "col" style="margin-top:1%;">   
             Willkommen zurück! Sie sind eingeloggt als <?php echo $_SESSION["username"]; 
-            ?> .
+            ?> . 
+
             </div>
             <div class="col" style="margin-top:1%;">
               <input type="submit" value="Meine Daten ändern" onclick="window.open('Stammdaten.php');">
