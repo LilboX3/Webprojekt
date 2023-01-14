@@ -44,8 +44,8 @@
         $result = mysqli_fetch_assoc($admin);
         $admincell = (string)$result["admin"]; //string aus datensatz mit admin holen
   
-        if($_SESSION["status"]!="aktiv"){
-          
+        if($_SESSION["status"]=="inaktiv"||$_SESSION["status"]=="deaktiviert"){
+          header("Location: Statuslogin.php?status=".$_SESSION["status"]."&username=".$_POST["usrnm"]);
         }
         else if(password_verify($_POST["pw"], $cell)){
           $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user ."'");

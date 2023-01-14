@@ -36,7 +36,7 @@ session_start();?>
             </div>  
           <div class="col" style="text-align:center">
             <?php if(isset($_SESSION["loggedIn"])&&$_SESSION["loggedIn"]){
-              echo "<p>Eingeloggt als ".$_SESSION["username"]." mit Status: ".$_SESSION["status"]."</p>";
+              echo "<p>Eingeloggt als ".$_SESSION["username"]." - Status: ".$_SESSION["status"]."</p>";
             } else {
               echo "<p>Sie sind anonym</p>";
             } ?>
