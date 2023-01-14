@@ -38,7 +38,7 @@ if(!isset($_POST["radios"])){
         <div class="row">
             <div class="col">
                 <h1> Willkommen in der Des Nâtes Familie! </h1>
-                <h4>Melden Sie sich jetzt an! Sie sind mit folgenden Daten registriert:</h4>
+                <h4><a href="Login.php">Melden Sie sich jetzt an!</a> Sie sind mit folgenden Daten registriert:</h4>
                 <?php
                 $user = $_POST["username"];
                 $result = $db_obj->query("SELECT * FROM users WHERE username = '".$user."'");
