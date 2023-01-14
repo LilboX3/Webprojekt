@@ -38,9 +38,11 @@
     }
   </style>
 <body>
+<?php include 'Navbar.php'?>
 <div class="container">
         <div class="row">
-    <?php include 'Navbar.php'?>
+   
+    
     <form action="AdStammdaten.php" method="post">
         <label for="Stammdaten">ID eingeben um Stammdaten zu ändern:</label><br>
         <input type="text" name="Stammdaten" placeholder="24">
@@ -73,6 +75,12 @@
             echo "<div class='col-3'></div>";
             $status = "status".$row["id"];
             ?>
+
+            <form action="AdSpezReservierung.php" method="get">
+            <label for="Reservierung">Hier die Reservierungen dieses Users einsehen:</label><br>
+            <input type="submit" name="Reservierung" value="<?php echo $row["Username"]?>">
+            </form>
+
             <form action="AdUser.php" method="post">
             <label for="<?php echo $status?>">Daten ändern:</label><br>
             <input type="radio" name="<?php echo $status?>" value="aktiv"> Status: Aktiv <br>

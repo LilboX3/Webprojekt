@@ -11,15 +11,17 @@
     <style>
         .background {
             background-image: url("pics/lobby.jpg");
-            margin-top: 20%;
-            /*position: fixed; Verhindert scrollen und verdeckt navbar!*/
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-attachment: fixed;
+            background-size: cover;
+            height:800px;
+            
         }
-
         .box {
-            background-color: lightblue;
-            border: 1px solid white;
+            padding-top:3%;
+            padding-bottom: 3%;
+            background-color:bisque;
+            border: 3px solid maroon;
             border-radius: 4px;
         }
 
@@ -31,42 +33,30 @@
 </head>
 
 <body>
-
     <?php include 'Navbar.php' ?>
-    <div class="container-fluid mt-2 background">
+    
+    <div class="background">
         <div class="row">
-            <div class="col-sm-5 box" style="margin-top:10%;">
-                <h2>News zu unserem Hotel:</h2>
-                <p>Unglaublich - Wir feiern bald unseren 100. Geburtstag!</p>
-                <p>Des Nâtes eröffnet sein erstes Hotel außerhalb Europas!</p>
-                <p>Wow - schon fast 100.000 Mal gebucht!</p>
-                <p>Gewinnspiel - unser 100.000 Gast bekommt seinen Aufenthalt geschenkt!</p>
-                <p>Die schönste Hotellobby Europas - jetzt auch mit Auszeichnung!</p>
-                <p>Zum 10. Mal in Folge: Top 10 Hotels in Österreich</p>
+            <div class="col-2"></div>
+            <div class="col-8 box" style="margin-top:5%;text-align:center;">
+                <h2>Erleben Sie Des Nâtes</h2>
+                <p>"Ein einmaliges Erlebnis!" - 10/10 Hotels Daily</p>
+                <p style="font-size:smaller;">"Alles Mögliche und mehr, als was man sich von einem Hotel erwartet" - Gast</p>
             </div>
-            <div class="col-sm-2" style="margin-top:10%;">
-
-            </div>
-            <div class="col-sm-5 box" style=" margin-top:10%;">
-                <h2>Heutige Aktivitäten</h2>
-                <li>Gymnastik im Pool</li>
-                <li>Mountainbike mit den Profis</li>
-                <li>Zeichenspaß im Keller</li>
-                <li>Öl-Massage</li>
-                <li>Nachtwanderung mit Fackeln</li>
-                <li>Weinverkostung im Abendsaal</li>
-                <li>Vernissage im Salon</li>
-                <li>... und viele mehr!</li>
-            </div>
+            <div class="col-2"></div>
         </div>
-        <div class="row" style="background-color:antiquewhite; margin-top: 2%;">
-            <p> Wir sind Des Nâtes - das entspannte und stylische Hotel wo es für jeden was zum Erleben gibt! </p>
+        <div class="row">
+        <div class="col-2"></div>
+            <div class="col-8 box" style="margin-top:1%; text-align:center;">
+                <p><a href="Registrierung.php">Erstellen Sie ein Konto</a></p>
+                <p><a href="News.php">Hotel-News</a></p>
+                <p><a href="Galerie.php">Bilder</a></p>
+                <p><a href="FAQ.php">Mehr erfahren</a></p>
+            </div>
+            <div class="col-2"></div>
         </div>
-
     </div>
-
-    </div>
-
+    
 
 
 </body>

@@ -9,7 +9,7 @@ session_start();?>
     return $cell;
       }
 
-  function bool_toString($bool){
+  function bool_toString($bool){ //zu Ja oder Nein konvertieren
         if($bool==1){
             return "Ja";
         }

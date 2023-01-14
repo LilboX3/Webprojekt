@@ -52,11 +52,11 @@
                     echo "<div class='col-3'></div>"; //Boxen in die Mitte bringen
 
                    echo "<div class='col-6 box' style='margin-top:2%;'>";
-                   echo "<p>".$count .". Die Buchungsnummer lautet ".$row["ZimmerID"]." von ".$row["user"]." und es wurde am ".$row["Datum"]." gebucht.</p>";
+                   echo "<details><summary>".$count .". Die Buchungsnummer lautet ".$row["ZimmerID"]." von ".$row["user"]." und es wurde am ".$row["Datum"]." gebucht.</summary>";
                    echo "<p>Der Aufenthalt ist von ".$row["Anreise"]." bis ".$row["Abreise"]." für ".$row["Nächte"]." Nächte.</p>"; 
                    echo "<p>Mit Frühstück: ".$breakfast.", Mit einem Parkplatz; ".$parking.", Mit einem Haustier: ".$pet."</p>"; 
                    echo "<p>Der Preis lautet ".$row["Preis"]." €.</p>";
-                   echo "<p>Der Status der Buchung ist: ".$row["Status"]."</p>";
+                   echo "<p>Der Status der Buchung ist: ".$row["Status"]."</p></details>";
                    $radioname = "radios".$row["ZimmerID"];
                    ?>
 

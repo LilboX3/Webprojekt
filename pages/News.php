@@ -18,7 +18,7 @@
     }
 
     .thumbnail {
-    width: 500px;
+    width: 50%;
     height: 300px;
     display: inline-block;
     background-size: cover;
