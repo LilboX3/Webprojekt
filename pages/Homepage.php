@@ -19,10 +19,15 @@
         }
         .box {
             padding-top:3%;
-            padding-bottom: 3%;
+            padding-bottom: 1%;
             background-color:bisque;
             border: 3px solid maroon;
             border-radius: 4px;
+        }
+        .box2{
+            background-color: white;
+            border-radius: 4px;
+            display: block;
         }
 
         li {
@@ -46,14 +51,14 @@
             <div class="col-2"></div>
         </div>
         <div class="row">
-        <div class="col-2"></div>
-            <div class="col-8 box" style="margin-top:1%; text-align:center;">
+        <div class="col-4"></div>
+            <div class="col-4 box2" style="margin-top:1%; text-align:center;">
                 <p><a href="Registrierung.php">Erstellen Sie ein Konto</a></p>
                 <p><a href="News.php">Hotel-News</a></p>
                 <p><a href="Galerie.php">Bilder</a></p>
                 <p><a href="FAQ.php">Mehr erfahren</a></p>
             </div>
-            <div class="col-2"></div>
+            <div class="col-4"></div>
         </div>
     </div>
     
