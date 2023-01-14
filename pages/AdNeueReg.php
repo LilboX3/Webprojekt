@@ -14,5 +14,33 @@
 </head>
 <body>
     <?php include 'Navbar.php'?>
+    <h1>Neue Registrierungen</h1>
+    <a href="AdUser.php">User verwalten...</a>
+<br>
+    <?php
+    $query = $db_obj->query("SELECT * FROM users ORDER BY id DESC");
+
+    if($query->num_rows > 0){
+        while($row = $query->fetch_assoc()){
+            $user = $row["Username"];
+            $anrede = $row["Geschlecht"];
+            $name = $row["Name"];
+            $lname = $row["Nachname"];
+    ?>
+    <div class="content">
+    <div class="container">
+    <div class="row" style="margin-top:1%;margin-bottom:5%">
+    <div class="col box">
+    <p style="background-color: white; margin-top: 1%"><?php echo $anrede;?> <?php echo $name;?> <?php echo $lname;?> 
+    hat sich unter dem Username "<?php echo $user;?>" registriert!</p>
+    </div>
+    </div>
+    </div>
+    </div>
+<?php }
+}else{ ?>
+    <p>Noch keine Registrierungen...</p>
+<?php } ?>
+
 </body>
 </html>

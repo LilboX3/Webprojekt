@@ -16,37 +16,43 @@
     </style>
 </head>
 <body>
-    <?php include 'Navbar.php'?>
-    <div class="container">
-        <div class="row" style="margin-top: 1%;">
-    <div class="col">
-    News-Beitrag wird gepostet...
-    </div>
-    <div class="col box">
-    <?php 
-    $target_dir = "uploads/";
+    <?php include 'Navbar.php';
 
-    echo "<h4 style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["ntitel"] . "</h4>"; //Text ausgeben
+    if(is_uploaded_file($_FILES['picture']['tmp_name']) && !empty($_POST["ntitel"]) && !empty($_POST["textmsg"])){
+        $target_dir = "uploads/";
+        $titel = $_POST["ntitel"];
+        $text = $_POST["textmsg"];
+        $picName = basename($_FILES["picture"]["name"]);
+        $targetPath = $target_dir . $picName;
 
-    
-    if(isset($_FILES["picture"])){
-        $picture = $_FILES["picture"];
-        $type = mime_content_type($picture["tmp_name"]); //Typ von upload File in Variable speichern
-        $check = getimagesize($picture["tmp_name"]); //on failure: returns false.
-        if(strpos($type, "image")!==false){ //kann ein false oder int rauskommen bei strpos, wenn int dann ist es true. wenn es nicht vom typ false ist: TYP STIMMT!
-            // !== bedeutet ist nicht vom typ
-            move_uploaded_file($picture["tmp_name"], "uploads/".$picture["name"]);
-            echo "<img src=\"uploads/" . $picture["name"]. "\" height='400' width=''> </img>";
-        } else {
-            echo "Fehler - ".$type." ist kein Bild und wurde nicht hochgeladen.";
-        }
-    }
-    
-    echo "<p style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["textmsg"] . "</p>";
-    
-    ?>  
-            </div>
+        move_uploaded_file($_FILES["picture"]["tmp_name"], $targetPath);
+        $sql = "INSERT INTO `news` (`image path`, `titel`, `text`, `datum`) 
+        VALUES ('$targetPath', '$titel', '$text', NOW())";
+        mysqli_query($db_obj, $sql);
+
+        echo "<div class='container'>
+        <div class='row' style='margin-top: 1%;'>
+        <div class='col'>
+        News-Beitrag wird gepostet.
         </div>
-    </div>
+        <div class='col box'>
+        <h4 style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>
+        " . $_POST["ntitel"] . "</h4>
+        <img src=".$targetPath." height='400' width=''> </img>
+        <p style='margin-top:1%;border: 1px solid black; border-radius: 3px; background-color: white;'>" . $_POST["textmsg"] . "</p>
+        ";
+
+
+
+    } else {
+        echo "<div style='margin-top:10%;text-align:center'> <p>Sie haben nicht alle Felder ausgefüllt!</p>
+        <a href='AdNewsUpload.php'>Zurück</a>
+        </div>";
+    }
+    ?>
+
+
+
+
 </body>
 </html>

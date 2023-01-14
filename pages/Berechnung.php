@@ -58,7 +58,7 @@
               <form action="Berechnung.php" method="get">
                 <label for="Zimmer">Wählen Sie aus:</label> <br/>
                  mit Frühstück <input type="radio" name="breakfast" value="Ja"> Ja <input type="radio" name="breakfast" value="Nein"> Nein  (+20€/Tag)<br>
-                 Mitnahme von Haustier <input type="radio" name="pet" value="Ja"> Ja <input type="radio" name="pet" value="Nein"> Nein <br>
+                 Mitnahme von Haustier <input type="radio" name="pet" value="Ja"> Ja <input type="radio" name="pet" value="Nein"> Nein  (+5€/Tag) <br>
                  mit Parkplatz <input type="radio" name="parking" value="Ja"> Ja <input type="radio" name="parking" value="Nein"> Nein  (+1€/Tag)<br>
                  Anzahl Nächte <input type="number" name="nights" style="width: 2em" min="1" max="365"><br>
                  Datum Anreise <input type="date" name="Anreise"><br>
@@ -85,6 +85,9 @@
             if($_GET["parking"]=="Ja"){
               $wholeprice += $_GET["nights"];
             }
+            if($_GET["pet"]=="Ja"){
+              $wholeprice += $_GET["nights"]*5;
+            }
             
             $datetime1 = date_create($_GET["Anreise"]);
             $datetime2 = date_create($_GET["Abreise"]);
@@ -99,8 +102,10 @@
                   $breakfast = get_bool($_GET["breakfast"]);
                   $parking = get_bool($_GET["parking"]);
                   $pet = get_bool($_GET["pet"]);
-                  $sql = "INSERT INTO `Reservierungen` (`Preis`, `Nächte`,`Anreise`, `Abreise`, `Frühstück`, `Parkplatz`, `Haustier`, `user`, `Status` )
-                  VALUES ('$wholeprice', '".$_GET["nights"]."', '".$_GET["Anreise"]."', '".$_GET["Abreise"]."', '$breakfast', '$parking', '$pet', '".$_SESSION["username"]."', 'Neu');";
+                  $today = date('Y-m-d H:i:s', time());
+
+                  $sql = "INSERT INTO `Reservierungen` (`Preis`, `Nächte`,`Anreise`, `Abreise`, `Frühstück`, `Parkplatz`, `Haustier`, `user`, `Status`, `Datum` )
+                  VALUES ('$wholeprice', '".$_GET["nights"]."', '".$_GET["Anreise"]."', '".$_GET["Abreise"]."', '$breakfast', '$parking', '$pet', '".$_SESSION["username"]."', 'Neu', '$today');";
                   $result = $db_obj->query($sql);
 
                     echo "<p> Ihre Reise wurde gebucht! Überprüfen Sie nochmal Ihre Daten: </p>";

@@ -50,7 +50,7 @@
                     echo "<div class='col-4'></div>"; //Boxen in die Mitte bringen
 
                    echo "<div class='col-4 box2'>";
-                   echo "<p>".$count .". Ihre Buchungsnummer lautet ".$row["ZimmerID"]."</p>";
+                   echo "<p>".$count .". Ihre Buchungsnummer lautet ".$row["ZimmerID"]." und Sie haben am ".$row["Datum"]." gebucht.</p>";
                    echo "<p>Ihr Aufenthalt ist von ".$row["Anreise"]." bis ".$row["Abreise"]." für ".$row["Nächte"]." Nächte.</p>"; 
                    echo "<p>Mit Frühstück: ".$breakfast.", Mit einem Parkplatz; ".$parking.", Mit einem Haustier: ".$pet."</p>"; 
                    echo "<p>Sie zahlen bei Ankunft insgesamt ".$row["Preis"]." €.</p>";

@@ -21,11 +21,13 @@
             <textarea name="ntitel" id="ntitel" rows="1" cols="39" placeholder="Titel"></textarea> <br>
             <label for="textmsg">News-Beitrag:</label> <br/> <!-- Das sollt der File uplopad sein, aber unwichtig, auch zum rausnehmen-->
             <textarea name="textmsg" id="textmsg" rows="10" cols="39" placeholder="Text..."></textarea> <br>
-            <input type="file" name="picture"> <br> <br>
-            <input type="submit" value="Hochladen">
+            <input type="file" name="picture" id="picture" accept="image/*"> <br> <br>
+            <input type="submit" name="submit" value="Hochladen">
             </form>
         </div>
     </div>
+
+
+
 </body>
 </html>
-

@@ -11,8 +11,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="StyleNav.css">
     <link rel="stylesheet" href="helper.css">
+    <style>
+    .box{
+        background-color: #739fb5;
+        border-radius: 4px;
+    }
+
+    .thumbnail {
+    width: 500px;
+    height: 300px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    }
+    </style>
 </head>
 <body>
-    <?php include 'Navbar.php'?>
+<?php include 'Navbar.php';?>
+<h1>Hotel News</h1>
+<br>
+    <?php
+    $query = $db_obj->query("SELECT * FROM news ORDER BY id DESC");
+
+    if($query->num_rows > 0){
+        while($row = $query->fetch_assoc()){
+            $titel = $row["titel"];
+            $imageURL = $row["image path"];
+            $text = $row["text"];
+            $datum = $row["datum"];
+    ?>
+    <div class="content">
+    <div class="container">
+    <div class="row" style="margin-top:1%;margin-bottom:5%">
+    <div class="col box">
+    <h2 style="color:white;"><?php echo $titel; ?></h2>
+    <p style="color:white"><?php echo $datum; ?></p>
+    <div class ="thumbnail" style="background-image:url(<?php echo $imageURL; ?>)"></div>
+    <br>
+    <p style="background-color: white; margin-top: 1%"><?php echo $text; ?></p>
+    </div>
+    </div>
+    </div>
+    </div>
+<?php }
+}else{ ?>
+    <p>Noch keine News-Artikel vorhanden...</p>
+<?php } ?>
+
 </body>
 </html>
