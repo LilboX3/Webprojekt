@@ -45,8 +45,8 @@
             <div class="col-2"></div>
             <div class="col-8 box" style="margin-top:5%;text-align:center;">
                 <h2>Erleben Sie Des Nâtes</h2>
-                <p>"Ein einmaliges Erlebnis!" - 10/10 Hotels Daily</p>
-                <p style="font-size:smaller;">"Alles Mögliche und mehr, als was man sich von einem Hotel erwartet" - Gast</p>
+                <p>"Ein einmaliges Erlebnis!" - 10/10 Top 10 Goofiest Hotels Daily</p>
+                <p style="font-size:smaller;">"Es ist einfach das Hotel jemals" - Gast</p>
             </div>
             <div class="col-2"></div>
         </div>
