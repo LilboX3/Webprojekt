@@ -20,9 +20,10 @@
         .box {
             padding-top:3%;
             padding-bottom: 1%;
-            background-color:bisque;
-            border: 3px solid maroon;
+            background-color:lightblue;
+            border: 3px solid darkslategray;
             border-radius: 4px;
+            
         }
         .box2{
             background-color: white;
@@ -46,7 +47,7 @@
             <div class="col-8 box" style="margin-top:5%;text-align:center;">
                 <h2>Erleben Sie Des Nâtes</h2>
                 <p>"Ein einmaliges Erlebnis!" - 10/10 Top 10 Goofiest Hotels Daily</p>
-                <p style="font-size:smaller;">"Es ist einfach das Hotel jemals" - Gast</p>
+                <p style="font-size:smaller;">"Es ist einfach eins der Hotels jemals" - Gast</p>
             </div>
             <div class="col-2"></div>
         </div>

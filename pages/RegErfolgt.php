@@ -2,18 +2,18 @@
 if($_POST["pword"]!=$_POST["2pword"]){
     header("Location: Registrierung.php?pwordwrong=true");//password nicht gleich error
 }
-if(strlen($_POST["pword"])<8){
+else if(strlen($_POST["pword"])<8){
     header("Location: Registrierung.php?pwordshort=true"); //Passwort zu kurz error
 }
-if(!ctype_alnum($_POST["username"])){
+else if(!ctype_alnum($_POST["username"])){
     header("Location: Registrierung.php?usernamewrong=true"); //Username soll nur Buichstaben und danach Zahlen enthalten
 }
-if(!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
+else if(!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
     header("Location: Registrierung.php?mailwrong=true"); //checken ob mail im richtigen format
 }
-if(!isset($_POST["radios"])){
+else if(!isset($_POST["radios"])){
     header("Location: Registrierung.php?anrederror=true"); //Radio Buttons nicht ausgefüllt
-}
+} else {
 
 
 
@@ -69,6 +69,7 @@ if(!isset($_POST["radios"])){
                     VALUES ('$username', '$hashed', '$mail', '$name', '$lastname', '$gender');";
                     $result = $db_obj->query($sql);
             }
+        }
                 
 
 
