@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,24 +88,13 @@
           </div>
           <div class="row">
             <div class="col box" style="margin-top: 1%;">
-              <form action="Berechnung.php" action="get">
-                <?php 
-                if(isset($_SESSION["Preis"])){
-                $_SESSION["Preis"]=NULL;} ?>
-                <label for="Zimmer">Reservieren sie ein Zimmer:</label> <br/>
-                 Doppelzimmer Standard <input type="number" name="anzahlStd" style="width: 2em" min="1" max="50"> 140 € p. P.<br>
-                 Deluxe Doppelzimmer <input type="number" name="anzahlDel" style="width: 2em" min="1" max="10"> 200 € p. P.<br>
-                 Einzelzimmer <input type="number" name="anzahlEinz" style="width: 2em" min="1" max="50"> 120 € p. P.<br>
-                 Familienzimmer <input type="number" name="anzahlFam" style="width: 2em" min="1" max="20"> 180 € p. P.<br>
-                <input type="submit" name="Buchen" value="Preis berechnen">
-              </form>
+                <p>"Im Hotel Des Nâtes erwartet Sie Luxus pur!"<br>-Benoit Ligmaire, Hotelexperte</p>
+                <p>"würde am liebsten für immer hier bleiben :P"<br>-uwu_minez, Influencerin</p>
+                <p>"Bestes Hotel des Jahres"<br>-ZIB Instagram account</p>
+                <button onclick="location.href='Berechnung.php'" type="button" style="border:none;">
+                Weiter zur Buchung!</button>
             </div>
           </div>
-        </div>
-            
-       
-    
-    
-    
+        </div>  
 </body>
 </html>
